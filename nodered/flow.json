@@ -1,0 +1,528 @@
+[
+    {
+        "id": "ff73f49f.5cad68",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "a888bd59.13d34",
+        "type": "mqtt in",
+        "z": "ff73f49f.5cad68",
+        "name": "",
+        "topic": "hortainteligentedanijoao/humidity",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "3be94d30.f66d22",
+        "x": 150,
+        "y": 360,
+        "wires": [
+            [
+                "1cd72404.aa1dfc",
+                "fa61865d.665958"
+            ]
+        ]
+    },
+    {
+        "id": "1cd72404.aa1dfc",
+        "type": "ui_text",
+        "z": "ff73f49f.5cad68",
+        "group": "ba1632fd.5fbbf",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Umidade Atual",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "x": 420,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "720c2f8d.35cdc",
+        "type": "ui_slider",
+        "z": "ff73f49f.5cad68",
+        "name": "",
+        "label": "Segundos para verificação de umidade",
+        "tooltip": "",
+        "group": "b16a7c61.791c7",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "all",
+        "topic": "",
+        "min": "1",
+        "max": "10",
+        "step": 1,
+        "x": 700,
+        "y": 60,
+        "wires": [
+            [
+                "648f532d.f3149c"
+            ]
+        ]
+    },
+    {
+        "id": "125b90f9.eefc6f",
+        "type": "ui_slider",
+        "z": "ff73f49f.5cad68",
+        "name": "",
+        "label": "Quantidade segundos de irrigação",
+        "tooltip": "",
+        "group": "b16a7c61.791c7",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "all",
+        "topic": "",
+        "min": "1",
+        "max": "5",
+        "step": 1,
+        "x": 680,
+        "y": 120,
+        "wires": [
+            [
+                "c145b68b.aa53c8"
+            ]
+        ]
+    },
+    {
+        "id": "e07f6b00.714948",
+        "type": "ui_slider",
+        "z": "ff73f49f.5cad68",
+        "name": "",
+        "label": "Umidade Adequada",
+        "tooltip": "",
+        "group": "b16a7c61.791c7",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "all",
+        "topic": "",
+        "min": "10",
+        "max": "80",
+        "step": 1,
+        "x": 640,
+        "y": 180,
+        "wires": [
+            [
+                "8eafc057.3c3e8"
+            ]
+        ]
+    },
+    {
+        "id": "648f532d.f3149c",
+        "type": "ui_numeric",
+        "z": "ff73f49f.5cad68",
+        "name": "",
+        "label": "",
+        "tooltip": "",
+        "group": "b16a7c61.791c7",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "hortainteligentedanijoao/verificationseconds",
+        "format": "{{value}}",
+        "min": "1",
+        "max": "10",
+        "step": 1,
+        "x": 940,
+        "y": 60,
+        "wires": [
+            [
+                "5a10102c.9a723"
+            ]
+        ]
+    },
+    {
+        "id": "c145b68b.aa53c8",
+        "type": "ui_numeric",
+        "z": "ff73f49f.5cad68",
+        "name": "",
+        "label": "",
+        "tooltip": "",
+        "group": "b16a7c61.791c7",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "",
+        "format": "{{value}}",
+        "min": "1",
+        "max": "5",
+        "step": 1,
+        "x": 940,
+        "y": 120,
+        "wires": [
+            [
+                "4248432e.ada9ec"
+            ]
+        ]
+    },
+    {
+        "id": "8eafc057.3c3e8",
+        "type": "ui_numeric",
+        "z": "ff73f49f.5cad68",
+        "name": "",
+        "label": "",
+        "tooltip": "",
+        "group": "b16a7c61.791c7",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "",
+        "format": "{{value}}",
+        "min": "10",
+        "max": "80",
+        "step": 1,
+        "x": 940,
+        "y": 180,
+        "wires": [
+            [
+                "ffa561cf.fad88"
+            ]
+        ]
+    },
+    {
+        "id": "5a10102c.9a723",
+        "type": "mqtt out",
+        "z": "ff73f49f.5cad68",
+        "name": "",
+        "topic": "hortainteligentedanijoao/verificationseconds",
+        "qos": "2",
+        "retain": "",
+        "broker": "3be94d30.f66d22",
+        "x": 1190,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "4248432e.ada9ec",
+        "type": "mqtt out",
+        "z": "ff73f49f.5cad68",
+        "name": "",
+        "topic": "hortainteligentedanijoao/irrigationmilli",
+        "qos": "",
+        "retain": "",
+        "broker": "3be94d30.f66d22",
+        "x": 1170,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "ffa561cf.fad88",
+        "type": "mqtt out",
+        "z": "ff73f49f.5cad68",
+        "name": "",
+        "topic": "hortainteligentedanijoao/suitablemoisture",
+        "qos": "",
+        "retain": "",
+        "broker": "3be94d30.f66d22",
+        "x": 1180,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "2a81dd2f.aec022",
+        "type": "ui_button",
+        "z": "ff73f49f.5cad68",
+        "name": "",
+        "group": "b16a7c61.791c7",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Habilitar Solenoide",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "1",
+        "payloadType": "num",
+        "topic": "",
+        "x": 630,
+        "y": 240,
+        "wires": [
+            [
+                "fe506c56.eb23e"
+            ]
+        ]
+    },
+    {
+        "id": "fe506c56.eb23e",
+        "type": "mqtt out",
+        "z": "ff73f49f.5cad68",
+        "name": "",
+        "topic": "hortainteligentedanijoao/solenoid",
+        "qos": "",
+        "retain": "",
+        "broker": "3be94d30.f66d22",
+        "x": 1160,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "fa61865d.665958",
+        "type": "ui_chart",
+        "z": "ff73f49f.5cad68",
+        "name": "",
+        "group": "ba1632fd.5fbbf",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "label": "Umidade",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "outputs": 1,
+        "x": 400,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "653634c2.aa839c",
+        "type": "inject",
+        "z": "ff73f49f.5cad68",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 220,
+        "y": 420,
+        "wires": [
+            [
+                "fa61865d.665958"
+            ]
+        ]
+    },
+    {
+        "id": "d977686a.faa738",
+        "type": "amazon-echo-hub",
+        "z": "ff73f49f.5cad68",
+        "port": "80",
+        "processinput": 0,
+        "discovery": true,
+        "x": 110,
+        "y": 160,
+        "wires": [
+            [
+                "ab9b5d0.34d2ca",
+                "cec17981.961378",
+                "688e4961.743738",
+                "fa0a9c96.0ac2b"
+            ]
+        ]
+    },
+    {
+        "id": "ab9b5d0.34d2ca",
+        "type": "amazon-echo-device",
+        "z": "ff73f49f.5cad68",
+        "name": "Valvula",
+        "topic": "",
+        "x": 320,
+        "y": 240,
+        "wires": [
+            [
+                "b4f8ac17.4c11a"
+            ]
+        ]
+    },
+    {
+        "id": "fa0a9c96.0ac2b",
+        "type": "amazon-echo-device",
+        "z": "ff73f49f.5cad68",
+        "name": "Verifica",
+        "topic": "",
+        "x": 320,
+        "y": 60,
+        "wires": [
+            [
+                "6872be23.127cc"
+            ]
+        ]
+    },
+    {
+        "id": "688e4961.743738",
+        "type": "amazon-echo-device",
+        "z": "ff73f49f.5cad68",
+        "name": "Irriga",
+        "topic": "",
+        "x": 310,
+        "y": 120,
+        "wires": [
+            [
+                "4f483aff.fff504"
+            ]
+        ]
+    },
+    {
+        "id": "cec17981.961378",
+        "type": "amazon-echo-device",
+        "z": "ff73f49f.5cad68",
+        "name": "Umidade",
+        "topic": "",
+        "x": 320,
+        "y": 180,
+        "wires": [
+            [
+                "cc72faf7.fdee58"
+            ]
+        ]
+    },
+    {
+        "id": "6872be23.127cc",
+        "type": "function",
+        "z": "ff73f49f.5cad68",
+        "name": "",
+        "func": "return {payload: msg.percentage};",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 470,
+        "y": 60,
+        "wires": [
+            [
+                "720c2f8d.35cdc"
+            ]
+        ]
+    },
+    {
+        "id": "4f483aff.fff504",
+        "type": "function",
+        "z": "ff73f49f.5cad68",
+        "name": "",
+        "func": "return {payload: msg.percentage};",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 470,
+        "y": 120,
+        "wires": [
+            [
+                "125b90f9.eefc6f"
+            ]
+        ]
+    },
+    {
+        "id": "cc72faf7.fdee58",
+        "type": "function",
+        "z": "ff73f49f.5cad68",
+        "name": "",
+        "func": "return {payload: msg.percentage};",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 470,
+        "y": 180,
+        "wires": [
+            [
+                "e07f6b00.714948"
+            ]
+        ]
+    },
+    {
+        "id": "b4f8ac17.4c11a",
+        "type": "function",
+        "z": "ff73f49f.5cad68",
+        "name": "",
+        "func": "\nreturn {payload: \"1\"};",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 470,
+        "y": 240,
+        "wires": [
+            [
+                "fe506c56.eb23e"
+            ]
+        ]
+    },
+    {
+        "id": "3be94d30.f66d22",
+        "type": "mqtt-broker",
+        "z": "",
+        "name": "eclipse",
+        "broker": "mqtt.eclipse.org",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": false,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "ba1632fd.5fbbf",
+        "type": "ui_group",
+        "z": "",
+        "name": "Dados atuais:",
+        "tab": "b5bced7d.cb8ff",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "b16a7c61.791c7",
+        "type": "ui_group",
+        "z": "",
+        "name": "Configurações Gerais:",
+        "tab": "b5bced7d.cb8ff",
+        "order": 1,
+        "disp": true,
+        "width": "7",
+        "collapse": false
+    },
+    {
+        "id": "b5bced7d.cb8ff",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
